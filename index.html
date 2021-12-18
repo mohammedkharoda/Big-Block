@@ -380,15 +380,17 @@
             <div class="contact__data">
               <div class="contact__information">
                 <h3 class="contact__subtitle">Call us for instant support</h3>
-                <span class="contact__description"
-                  ><i class="ri-smartphone-line"></i> +9581120365
+                <span class="contact__description">
+                  <i class="ri-phone-line contact__icon"></i>
+                  +999 888 777
                 </span>
               </div>
 
               <div class="contact__information">
                 <h3 class="contact__subtitle">Write us by mail</h3>
-                <span class="contact__description"
-                  ><i class="ri-mail-send-line"></i>chessplay@gmail.com
+                <span class="contact__description">
+                  <i class="ri-mail-line contact__icon"></i>
+                  user@email.com
                 </span>
               </div>
             </div>
@@ -397,29 +399,22 @@
           <form action="" class="contact__form">
             <div class="contact__inputs">
               <div class="contact__content">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  class="contact__input"
-                />
+                <input type="email" placeholder=" " class="contact__input" />
+                <label for="" class="contact__label">Email</label>
               </div>
 
-              <!-- 2 -->
               <div class="contact__content">
-                <input
-                  type="email"
-                  placeholder="Subject"
-                  class="contact__input"
-                />
+                <input type="text" placeholder=" " class="contact__input" />
+                <label for="" class="contact__label">Subject</label>
               </div>
 
-              <!-- 3 -->
-              <div class="contact__content">
+              <div class="contact__content contact__area">
                 <textarea
                   name="message"
-                  placeholder="Message"
-                  class="contact__input contact__area"
+                  placeholder=" "
+                  class="contact__input"
                 ></textarea>
+                <label for="" class="contact__label">Message</label>
               </div>
             </div>
 
@@ -433,7 +428,72 @@
     </main>
 
     <!--==================== FOOTER ====================-->
-    <footer class="footer section"></footer>
+    <footer class="footer section">
+      <div class="footer__container container grid">
+        <div class="footer__content">
+          <a href="#" class="footer__logo">
+            <i class="ri-leaf-line footer__logo-icon"></i> Plantzopia
+          </a>
+
+          <h3 class="footer__title">
+            Subscribe to our Newsletter <br />
+            to stay update
+          </h3>
+
+          <div class="footer__subscribe">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="footer__input"
+            />
+
+            <button class="button button--flex footer__button">
+              Subscribe
+              <i class="ri-arrow-right-down-line button__icon"></i>
+            </button>
+          </div>
+        </div>
+        <!-- Address -->
+        <div class="footer__content">
+          <h3 class="footer__title">Our Address</h3>
+          <ul class="footer__data">
+            <li class="footer__information">55434 Floy Plains Apt. 147</li>
+            <li class="footer__information">New Reba</li>
+            <li class="footer__information">21276-5409</li>
+          </ul>
+        </div>
+        <!-- Contact Us -->
+        <div class="footer__content">
+          <h3 class="footer__title">Contact Us</h3>
+          <ul class="footer__data">
+            <li class="footer__information">+18633579850</li>
+            <div class="footer__social">
+              <a href="#" class="footer__social-link"
+                ><i class="ri-facebook-line"></i
+              ></a>
+              <a href="#" class="footer__social-link"
+                ><i class="ri-twitter-line"></i
+              ></a>
+              <a href="#" class="footer__social-link"
+                ><i class="ri-instagram-line"></i
+              ></a>
+            </div>
+          </ul>
+        </div>
+        <!-- Accept all Credit Card -->
+        <div class="footer__content">
+          <h3 class="footer__title">We accept all credit cards</h3>
+          <div class="footer__cards">
+            <img src="./assets/img/card1.png" alt="" class="footer__card" />
+            <img src="./assets/img/card2.png" alt="" class="footer__card" />
+            <img src="./assets/img/card3.png" alt="" class="footer__card" />
+            <img src="./assets/img/card4.png" alt="" class="footer__card" />
+            <img src="./assets/img/card5.png" alt="" class="footer__card" />
+          </div>
+        </div>
+      </div>
+      <p class="footer__copy">&#169; Plantzopia. All right reserved</p>
+    </footer>
 
     <!--=============== SCROLL UP ===============-->
 
