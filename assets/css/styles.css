@@ -7,15 +7,14 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --hue: 152;
-  --first-color: hsl(var(--hue), 24%, 32%);
-  --first-color-alt: hsl(var(--hue), 24%, 28%);
-  --first-color-light: hsl(var(--hue), 24%, 66%);
-  --first-color-lighten: hsl(var(--hue), 24%, 92%);
-  --title-color: hsl(var(--hue), 4%, 15%);
-  --text-color: hsl(var(--hue), 4%, 35%);
-  --text-color-light: hsl(var(--hue), 4%, 55%);
-  --body-color: hsl(var(--hue), 0%, 100%);
+  --first-color: #2c6679;
+  --first-color-alt: #0f5c66;
+  --first-color-light: #cecfdf;
+  --first-color-lighten: #e6e7ef;
+  --title-color: #2b2b2b;
+  --text-color: #333a48;
+  --text-color-light: #556077;
+  --body-color: #e6edef;
   --container-color: #fff;
 
   /*========== Font and typography ==========*/
@@ -33,7 +32,7 @@
   --font-medium: 500;
   --font-semi-bold: 600;
 
-  /*========== Margined Bottom ==========*/
+  /*========== Margenes Bottom ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --mb-0-5: 0.5rem;
   --mb-0-75: 0.75rem;
@@ -114,12 +113,91 @@ img {
 
 /*=============== THEME ===============*/
 /*========== Variables Dark theme ==========*/
+body.dark-theme {
+  --first-color-dark: #1e3336cc;
+  --title-color: #d1d1d1;
+  --text-color: #e7e9ee;
+  --body-color: #1d4b5e;
+  --container-color: #1f2e33;
+}
+
+/*========== Button Dark/Light ==========*/
+.change-theme {
+  color: var(--first-color-dark);
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+
+.nav__btns {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 1rem;
+}
 
 /*========== 
 Color changes in some parts of 
 the website, in dark theme 
 ==========*/
+.dark-theme .home__social-follow {
+  font-weight: var(--font-medium);
+  font-size: var(--smaller-font-size);
+  color: var(--first-color-lighten);
+  position: relative;
+  transform: rotate(90deg);
+}
 
+.dark-theme .home__social-follow::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 2px;
+  background-color: var(--first-color-lighten);
+  right: -45%;
+  top: 50%;
+}
+
+.dark-theme .home__social-links {
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+.dark-theme .home__social-link {
+  font-size: 1rem;
+  color: var(--first-color-lighten);
+  transition: 0.3s;
+}
+
+.dark-theme .home__social-link:hover {
+  transform: translateX(0.25rem);
+}
+.dark-theme .steps__bg,
+.dark-theme .questions {
+  background-color: var(--first-color-dark);
+}
+
+.dark-theme .product__circle,
+.dark-theme .footer__subscribe {
+  background-color: var(--container-color);
+}
+
+.dark-theme .scroll-header {
+  box-shadow: 0 1px 4px hsla(var(--hue), 4%, 4%, 0.3);
+}
+
+.dark-theme .active-link {
+  color: var(--first-color-light);
+}
+
+.dark-theme .active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--first-color-lighten);
+}
 /*=============== REUSABLE CSS CLASSES ===============*/
 .section {
   padding: 5.5rem 0 1rem;
@@ -158,14 +236,17 @@ the website, in dark theme
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
+  transition: 0.4s; /*For animation dark mode*/
 }
+
 /*=============== NAV ===============*/
 .nav {
   height: var(--header-height);
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-around;
 }
+
 .nav__logo,
 .nav__toggle,
 .nav__close {
@@ -187,13 +268,13 @@ the website, in dark theme
   color: var(--first-color);
 }
 
-.nav_logo:hover {
+.nav__logo:hover {
   color: var(--first-color);
 }
 
 .nav__toggle {
   display: inline-flex;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
@@ -246,10 +327,24 @@ the website, in dark theme
 .scroll-header {
   box-shadow: 0 1px 4px hsla(var(--hue), 4%, 15%, 0.1);
 }
+
 /* Active link */
+.active-link {
+  position: relative;
+  color: var(--first-color);
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--first-color);
+}
 
 /*=============== HOME ===============*/
-
 .home {
   padding: 3.5rem 0 2rem;
 }
@@ -260,8 +355,9 @@ the website, in dark theme
 }
 
 .home__img {
-  width: 200px;
+  width: 100%;
   justify-self: center;
+  border-radius: 1.5rem;
 }
 
 .home__title {
@@ -316,8 +412,8 @@ the website, in dark theme
 .home__social-link:hover {
   transform: translateX(0.25rem);
 }
-/*=============== BUTTONS ===============*/
 
+/*=============== BUTTONS ===============*/
 .button {
   display: inline-block;
   background-color: var(--first-color);
@@ -347,13 +443,17 @@ the website, in dark theme
 }
 
 .button--link {
-  color: var(--first-color);
+  padding: var(--mb-0-75);
+  border-radius: 1rem;
+  background-color: var(--first-color);
+  color: var(--first-color-lighten);
   font-weight: var(--font-medium);
 }
 
 .button--link:hover .button__icon {
   transform: translateX(0.25rem);
 }
+
 /*=============== ABOUT ===============*/
 .about__container {
   row-gap: 2rem;
@@ -367,9 +467,11 @@ the website, in dark theme
 .about__title {
   margin-bottom: var(--mb-1);
 }
+
 .about__description {
-  margin-bottom: var(--mb-1);
+  margin-bottom: var(--mb-2);
 }
+
 .about__details {
   display: grid;
   row-gap: 1rem;
@@ -387,6 +489,7 @@ the website, in dark theme
   color: var(--first-color);
   margin-top: 0.15rem;
 }
+
 /*=============== STEPS ===============*/
 .steps__bg {
   background-color: var(--first-color);
@@ -414,10 +517,10 @@ the website, in dark theme
   background-color: var(--first-color-alt);
   color: #fff;
   padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
   font-size: var(--h2-font-size);
   margin-bottom: var(--mb-1-5);
   transition: 0.3s;
-  border-radius: 0.5rem;
 }
 
 .steps__card-title {
@@ -432,6 +535,7 @@ the website, in dark theme
 .steps__card:hover .steps__card-number {
   transform: translateY(-0.25rem);
 }
+
 /*=============== PRODUCTS ===============*/
 .product__description {
   text-align: center;
@@ -450,21 +554,29 @@ the website, in dark theme
 
 .product__img {
   position: relative;
-  width: 120px;
+  width: 100%;
   justify-self: center;
   margin-bottom: var(--mb-0-75);
   transition: 0.3s;
 }
 
 .product__title,
-.product__price {
+.product__details {
   font-size: var(--small-font-size);
-  font-weight: var(--font-semi-bold);
+  font-weight: var(--font-medium);
   color: var(--title-color);
 }
 
 .product__title {
   margin-bottom: 0.25rem;
+}
+
+.product__details {
+  margin-top: var(--mb-0-75);
+}
+
+.product__details:nth-of-type(1) {
+  margin-bottom: 0.5rem;
 }
 
 .product__button {
@@ -482,27 +594,16 @@ the website, in dark theme
   background-color: var(--first-color-alt);
 }
 
-.product__circle {
-  width: 90px;
-  height: 90px;
-  background-color: var(--first-color-lighten);
-  border-radius: 50%;
-  position: absolute;
-  top: 18%;
-  left: 5%;
-}
-
 .product__card:hover .product__img {
   transform: translateY(-0.5rem);
 }
 
 /*=============== QUESTIONS ===============*/
-
 .questions {
-  background-color: var(--first-color-lighten);
+  background-color: var(--first-color);
 }
 
-.question__container {
+.questions__container {
   gap: 1.5rem;
   padding: 1.5rem 0;
 }
@@ -522,13 +623,13 @@ the website, in dark theme
   font-weight: var(--font-medium);
 }
 
-.question__icon {
+.questions__icon {
   font-size: 1.25rem;
   color: var(--title-color);
 }
 
 .questions__description {
-  font-size: var(--small-font-size);
+  font-size: var(--smaller-font-size);
   padding: 0 1.25rem 1.25rem 2.5rem;
 }
 
@@ -539,10 +640,12 @@ the website, in dark theme
   padding: 0.75rem 0.5rem;
   cursor: pointer;
 }
+
 .questions__content {
   overflow: hidden;
   height: 0;
 }
+
 .questions__item,
 .questions__header,
 .questions__item-title,
@@ -553,27 +656,27 @@ the website, in dark theme
 }
 
 .questions__item:hover {
-  box-shadow: 0 2px 8px hsla(var(--hue), 4%, 15%, 0.1);
+  box-shadow: 0 2px 8px hsla(var(--hue), 4%, 15%, 0.15);
 }
-/*Rotate icon, change color of titles and background*/
 
+/*Rotate icon, change color of titles and background*/
 .accordion-open .questions__header,
 .accordion-open .questions__content {
-  background-color: var(--first-color);
+  background-color: var(--text-color);
 }
 
 .accordion-open .questions__item-title,
 .accordion-open .questions__description,
-.accordion-open .question__icon {
+.accordion-open .questions__icon {
   color: #fff;
 }
 
-.accordion-open .question__icon {
+.accordion-open .questions__icon {
   transform: rotate(45deg);
-  transition: 0.5s ease-in-out;
+  transition: 0.5s;
 }
-/*=============== CONTACT ===============*/
 
+/*=============== CONTACT ===============*/
 .contact__container {
   row-gap: 3.5rem;
 }
@@ -673,6 +776,7 @@ the website, in dark theme
   align-items: center;
   column-gap: 0.5rem;
   color: var(--title-color);
+  text-transform: uppercase;
   font-weight: 700;
   letter-spacing: -1px;
   margin-bottom: var(--mb-2-5);
@@ -741,9 +845,8 @@ the website, in dark theme
 .footer__cards {
   display: inline-flex;
   align-items: center;
-  column-gap: 2rem;
+  column-gap: 0.5rem;
 }
-
 .footer__card {
   width: 35px;
 }
@@ -754,15 +857,257 @@ the website, in dark theme
   color: var(--text-color-light);
   margin: 5rem 0 1rem;
 }
+
 /*=============== SCROLL UP ===============*/
+.scrollup {
+  position: fixed;
+  background-color: var(--first-color);
+  right: 1rem;
+  bottom: -30%;
+  display: inline-flex;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  z-index: var(--z-tooltip);
+  opacity: 0.8;
+  transition: 0.4s;
+}
+
+.scrollup__icon {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.scrollup:hover {
+  background-color: var(--first-color-alt);
+  opacity: 1;
+}
 
 /* Show Scroll Up*/
+.show-scroll {
+  bottom: 3rem;
+}
 
 /*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: hsl(var(--hue), 4%, 53%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--hue), 4%, 29%);
+  border-radius: 0.5rem;
+}
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
+
+  .home__img {
+    width: 180px;
+  }
+  .home__title {
+    font-size: var(--h1-font-size);
+  }
+
+  .steps__bg {
+    padding: 2rem 1rem;
+  }
+  .steps__card {
+    padding: 1.5rem;
+  }
+
+  .product__container {
+    grid-template-columns: 0.6fr;
+    justify-content: center;
+  }
+}
 
 /* For medium devices */
+@media screen and (min-width: 576px) {
+  .steps__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-/* For large devices */ ;
+  .product__description {
+    padding: 0 4rem;
+  }
+  .product__container {
+    grid-template-columns: repeat(2, 170px);
+    justify-content: center;
+    column-gap: 5rem;
+  }
+
+  .footer__subscribe {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+    column-gap: 3rem;
+  }
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+  .nav__menu {
+    margin-left: auto;
+  }
+
+  .home__container,
+  .about__container,
+  .questions__container,
+  .contact__container,
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home {
+    padding: 10rem 0 5rem;
+  }
+  .home__container {
+    align-items: center;
+  }
+  .home__img {
+    width: 280px;
+    order: 1;
+  }
+  .home__social {
+    top: 30%;
+  }
+
+  .questions__container {
+    align-items: flex-start;
+  }
+
+  .footer__container {
+    column-gap: 3rem;
+  }
+  .footer__subscribe {
+    width: initial;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 992px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section {
+    padding: 8rem 0 1rem;
+  }
+  .section__title,
+  .section__title-center {
+    font-size: var(--h1-font-size);
+  }
+
+  .home {
+    padding: 13rem 0 5rem;
+  }
+  .home__img {
+    width: 350px;
+  }
+  .home__description {
+    padding-right: 7rem;
+  }
+
+  .about__img {
+    width: 380px;
+  }
+
+  .steps__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .steps__bg {
+    padding: 3.5rem 2.5rem;
+  }
+  .steps__card-title {
+    font-size: var(--normal-font-size);
+  }
+
+  .product__description {
+    padding: 0 16rem;
+  }
+  .product__container {
+    padding: 4rem 0;
+    grid-template-columns: repeat(3, 185px);
+    gap: 4rem 6rem;
+  }
+  .product__img {
+    width: 160px;
+  }
+  .product__circle {
+    width: 110px;
+    height: 110px;
+  }
+  .product__title,
+  .product__price {
+    font-size: var(--normal-font-size);
+  }
+
+  .questions__container {
+    padding: 1rem 0 4rem;
+  }
+  .questions__title {
+    text-align: initial;
+  }
+  .questions__group {
+    row-gap: 2rem;
+  }
+  .questions__header {
+    padding: 1rem;
+  }
+  .questions__description {
+    padding: 0 3.5rem 2.25rem 2.75rem;
+  }
+
+  .footer__logo {
+    font-size: var(--h3-font-size);
+  }
+  .footer__container {
+    grid-template-columns: 1fr 0.5fr 0.5fr 0.5fr;
+  }
+  .footer__copy {
+    margin: 7rem 0 2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .home__social {
+    right: -3rem;
+    row-gap: 4.5rem;
+  }
+  .home__social-follow {
+    font-size: var(--small-font-size);
+  }
+  .home__social-follow::after {
+    width: 1.5rem;
+    right: -60%;
+  }
+  .home__social-link {
+    font-size: 1.15rem;
+  }
+
+  .about__container {
+    column-gap: 7rem;
+  }
+
+  .scrollup {
+    right: 3rem;
+  }
+}
