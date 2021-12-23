@@ -858,6 +858,32 @@ the website, in dark theme
   margin: 5rem 0 1rem;
 }
 
+.author__name {
+  text-align: center;
+  font-size: var(--smaller-font-size);
+}
+.author__name-link {
+  text-decoration: none;
+  color: var(--first-color-alt);
+  border-bottom: 1px solid currentColor;
+}
+.author__name-link::hover {
+  border: 3px solid bottom #2c6679;
+  transition: 0.3s all;
+  color: var(--first-color-dark);
+  font-style: italic;
+  border-bottom: 1px dasheds currentColor;
+}
+.author__name-link:link {
+  border: none;
+}
+
+.author__name-link:visited {
+  color: #333a48;
+  border: none;
+  text-decoration: none;
+}
+
 /*=============== SCROLL UP ===============*/
 .scrollup {
   position: fixed;
@@ -890,11 +916,11 @@ the website, in dark theme
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
   width: 0.6rem;
-  background: hsl(var(--hue), 4%, 53%);
+  background: var(--first-color-light);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--hue), 4%, 29%);
+  background: var(--first-color);
   border-radius: 0.5rem;
 }
 
